@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hope_connect_app_ui/forgetpassword/forgetpass_screen1.dart';
 
 class LoginScreen2 extends StatefulWidget {
   const LoginScreen2({super.key});
@@ -163,7 +164,14 @@ class _LoginScreen2State extends State<LoginScreen2> {
                 child: Padding(
                   padding: const EdgeInsets.only(right: 30.0),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ForgetpassScreen1(),
+                        ),
+                      );
+                    },
 
                     child: Text(
                       "Forgot Password ?",
