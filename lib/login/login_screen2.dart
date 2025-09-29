@@ -11,7 +11,7 @@ class LoginScreen2 extends StatefulWidget {
 class _LoginScreen2State extends State<LoginScreen2> {
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
+    //  final screenHeight = MediaQuery.of(context).size.height;
     bool _obscureText = false;
 
     return SafeArea(
@@ -23,16 +23,17 @@ class _LoginScreen2State extends State<LoginScreen2> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: screenHeight * 0.20,
                 width: double.infinity,
                 child: ClipPath(
                   clipper: UShapeClipper(),
                   child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
                     color: const Color(0xFF1C355E),
                     child: Center(
                       child: Padding(
                         padding: const EdgeInsets.all(10),
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             SizedBox(height: 30),

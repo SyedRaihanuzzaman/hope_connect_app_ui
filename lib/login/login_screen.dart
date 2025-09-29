@@ -23,17 +23,24 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               // 🔹 Top section with logo & curve (0.35 height as before)
               SizedBox(
-                height: screenHeight * 0.35,
+                height: screenHeight * 0.35, // always 35% of screen height
                 width: double.infinity,
                 child: ClipPath(
                   clipper: UShapeClipper(),
                   child: Container(
                     color: const Color(0xFF1C355E),
                     child: Center(
-                      child: Image.asset(
-                        "images/logoimage.jpg", // replace with your logo path
-                        height: 147,
-                        width: 147.66,
+                      child: LayoutBuilder(
+                        // makes child flexible to available height
+                        builder: (context, constraints) {
+                          return Image.asset(
+                            "images/logoimage.jpg",
+                            height:
+                                constraints.maxHeight *
+                                0.5, // 50% of header height
+                            fit: BoxFit.contain,
+                          );
+                        },
                       ),
                     ),
                   ),

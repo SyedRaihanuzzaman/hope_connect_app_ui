@@ -10,7 +10,7 @@ class ForgetpassScreen1 extends StatefulWidget {
 class _ForgetpassScreen1State extends State<ForgetpassScreen1> {
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
+    //  final screenHeight = MediaQuery.of(context).size.height;
 
     return SafeArea(
       child: Scaffold(
@@ -20,16 +20,17 @@ class _ForgetpassScreen1State extends State<ForgetpassScreen1> {
           child: Column(
             children: [
               SizedBox(
-                height: screenHeight * 0.20,
                 width: double.infinity,
                 child: ClipPath(
                   clipper: UShapeClipper(),
                   child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
                     color: const Color(0xFF1C355E),
                     child: Center(
                       child: Padding(
                         padding: const EdgeInsets.all(10),
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             SizedBox(height: 30),
