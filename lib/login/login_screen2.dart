@@ -16,7 +16,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFFE8B85C).withOpacity(0.1),
+        backgroundColor: const Color(0xFFFAF4EB),
 
         body: SingleChildScrollView(
           child: Column(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hope_connect_app_ui/forgetpassword/forgetpass_screen2.dart';
 
 class ForgetpassScreen1 extends StatefulWidget {
   const ForgetpassScreen1({super.key});
@@ -10,45 +11,43 @@ class ForgetpassScreen1 extends StatefulWidget {
 class _ForgetpassScreen1State extends State<ForgetpassScreen1> {
   @override
   Widget build(BuildContext context) {
-    //  final screenHeight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFFE8B85C).withOpacity(0.1),
-
+        backgroundColor: const Color(0xFFFAF4EB),
         body: SingleChildScrollView(
           child: Column(
             children: [
+              // 🔹 Header (35% of screen height)
               SizedBox(
+                height: screenHeight * 0.35,
                 width: double.infinity,
                 child: ClipPath(
                   clipper: UShapeClipper(),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
                     color: const Color(0xFF1C355E),
                     child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SizedBox(height: 30),
                             Text(
                               "NHA Mobile Connect",
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: 'playfairbold',
                                 fontWeight: FontWeight.w700,
                                 fontSize: 22,
-                                color: Color(0xFFFFFFFF),
+                                color: Colors.white,
                               ),
                             ),
-
-                            SizedBox(height: 15),
+                            const SizedBox(height: 15),
                             Image.asset(
                               "images/logoimage.jpg", // replace with your logo path
-                              height: 59,
-                              width: 58,
+                              height: 100,
+                              width: 100,
+                              fit: BoxFit.contain,
                             ),
                           ],
                         ),
@@ -58,9 +57,10 @@ class _ForgetpassScreen1State extends State<ForgetpassScreen1> {
                 ),
               ),
 
-              SizedBox(height: 58),
+              const SizedBox(height: 58),
 
-              Text(
+              // 🔹 Title
+              const Text(
                 "Enter your email",
                 style: TextStyle(
                   fontFamily: 'poppins',
@@ -70,10 +70,11 @@ class _ForgetpassScreen1State extends State<ForgetpassScreen1> {
                 ),
               ),
 
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
 
-              Padding(
-                padding: const EdgeInsets.only(left: 30, right: 30),
+              // 🔹 Email label
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -87,48 +88,59 @@ class _ForgetpassScreen1State extends State<ForgetpassScreen1> {
                   ),
                 ),
               ),
-              SizedBox(height: 8),
 
+              const SizedBox(height: 8),
+
+              // 🔹 Email input field
               Padding(
-                padding: const EdgeInsets.only(left: 30, right: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: TextField(
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color(0xFFFFFFFF),
-                    labelText: "Enter Your Name",
+                    fillColor: Colors.white,
+                    labelText: "Enter Your Email",
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xFF1C355E)),
+                      borderSide: const BorderSide(color: Color(0xFF1C355E)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color(0xFFE8B85C),
+                        width: 2,
+                      ),
                       borderRadius: BorderRadius.circular(15),
                     ),
                   ),
                 ),
               ),
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
+              // 🔹 Next button
               Padding(
-                padding: const EdgeInsets.only(left: 30, right: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: SizedBox(
-                  width: double.infinity, // full width
+                  width: double.infinity,
                   height: 50,
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ForgetpassScreen2(),
+                        ),
+                      );
 
+                      // Handle "Next" action
+                    },
                     style: OutlinedButton.styleFrom(
-                      backgroundColor: const Color(
-                        0xFFE8B85C,
-                      ), // background color
+                      backgroundColor: const Color(0xFFE8B85C),
                       foregroundColor: Colors.black,
-
-                      // text color
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          20,
-                        ), // rounded corners
+                        borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-
-                    child: Text(
+                    child: const Text(
                       "Next",
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
@@ -147,25 +159,22 @@ class _ForgetpassScreen1State extends State<ForgetpassScreen1> {
   }
 }
 
+// 🔹 Custom U-shape clipper with proportional depth
 class UShapeClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    double curveDepth = 80; // how deep the curve dips
+    double curveDepth = size.height * 0.3; // 30% of header height
 
     Path path = Path();
-
-    // Start from top-left
     path.lineTo(0, size.height - curveDepth);
 
-    // One smooth dip from left → middle → right
     path.quadraticBezierTo(
       size.width * 0.5,
       size.height + curveDepth, // dip in middle
       size.width,
-      size.height - curveDepth, // end at right
+      size.height - curveDepth,
     );
 
-    // Close shape
     path.lineTo(size.width, 0);
     path.close();
 

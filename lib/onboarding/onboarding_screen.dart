@@ -40,7 +40,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           'Instantly find essential services when you need them most..',
     ),
     _OnboardData(
-      imagePath: 'assets/image3.png',
+      imagePath: 'images/image3.png',
       title: 'Your Guide to Local Services, Simplified',
       description: 'Instantly find essential services when you need them most.',
     ),
@@ -167,7 +167,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
 
     return Scaffold(
       //  Whole screen background color
-      backgroundColor: const Color(0xFFE8B85C).withOpacity(0.1),
+      backgroundColor: const Color(0xFFFAF4EB),
       body: SafeArea(
         child: Column(
           children: [
