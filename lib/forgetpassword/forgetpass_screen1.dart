@@ -57,6 +57,88 @@ class _ForgetpassScreen1State extends State<ForgetpassScreen1> {
                   ),
                 ),
               ),
+
+              SizedBox(height: 58),
+
+              Text(
+                "Enter your email",
+                style: TextStyle(
+                  fontFamily: 'poppins',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Color(0xFF3B2E2A),
+                ),
+              ),
+
+              SizedBox(height: 15),
+
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 30),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Email",
+                    style: TextStyle(
+                      fontFamily: 'playfairmedium',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      color: Color(0xFF6C6C6C),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 8),
+
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 30),
+                child: TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Color(0xFFFFFFFF),
+                    labelText: "Enter Your Name",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFF1C355E)),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 30),
+                child: SizedBox(
+                  width: double.infinity, // full width
+                  height: 50,
+                  child: OutlinedButton(
+                    onPressed: () {},
+
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: const Color(
+                        0xFFE8B85C,
+                      ), // background color
+                      foregroundColor: Colors.black,
+
+                      // text color
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          20,
+                        ), // rounded corners
+                      ),
+                    ),
+
+                    child: Text(
+                      "Next",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'playfairmedium',
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
